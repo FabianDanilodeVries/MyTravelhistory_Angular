@@ -1,1 +1,12 @@
-<p>user works!</p>
+<h1>Travel Overview:</h1>
+<hr>
+<table>
+    <tr *ngFor="let holidayLocationVisit of visits">
+        <td>{{holidayLocationVisit.comment}}</td>
+        <td>{{holidayLocationVisit.rating}}</td>
+        <td>{{holidayLocationVisit.datum}}</td>
+    </tr>
+</table>
+
+
+
