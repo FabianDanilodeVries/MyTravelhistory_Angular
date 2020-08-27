@@ -1,4 +1,3 @@
-import { UserLoggedIn } from './../models/userLoggedIn';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';

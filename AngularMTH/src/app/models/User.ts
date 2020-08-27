@@ -1,4 +1,4 @@
-export class UserLoggedIn{
+export class User{
     userName: string;
     userId = 1;
 

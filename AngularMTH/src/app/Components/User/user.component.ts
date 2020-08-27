@@ -1,5 +1,3 @@
-import { HolidayLocationVisitService } from './../../services/holiday-location-visit.service';
-import { HolidayLocationVisit } from './../../models/HolidayLocationVisit';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,19 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-
-  visits: HolidayLocationVisit[];
-  userLoggedInId : string;
-
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService, ) {
-
-   }
+  constructor() { }
 
   ngOnInit(): void {
-     // this.visits = [];
-     // this.holidayLocationVisitService.findUserHLVisits(userId : string).subscribe(listOfHolidayLocationVisits =>{
-     //   this.visits = listOfHolidayLocationVisits;
-     // })
+     this.visits = [];
+     his.holidayLocationVisitService.findUserHLVisits(userId : string).subscribe(listOfHolidayLocationVisits =>{
+        this.visits = listOfHolidayLocationVisits;
+     })
   }
 
 }
