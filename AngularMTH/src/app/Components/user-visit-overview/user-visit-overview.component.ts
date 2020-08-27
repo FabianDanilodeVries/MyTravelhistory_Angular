@@ -1,7 +1,10 @@
+import { TestBed } from '@angular/core/testing';
 import { HolidayLocationVisitService } from '../../services/holiday-location-visit.service';
 import { HolidayLocationVisit } from '../../models/HolidayLocationVisit';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { Accommodation } from './../../models/Accommodation';
+import { Restaurant } from 'src/app/models/Restaurant';
 
 @Component({
   selector: 'app-user-visit-overview',
@@ -12,17 +15,26 @@ export class UserVisitOverviewComponent implements OnInit {
 
 
   visits: HolidayLocationVisit[];
+  user: User;
   userLoggedInId : number;
+  restaurants : Restaurant[];
+  accommodation : Accommodation[];
 
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService, userLoggedIn: User) {
-      this.userLoggedInId = userLoggedIn.userId;
+
+  constructor(private holidayLocationVisitService: HolidayLocationVisitService) {
+    this.user = new User;
+    this.userLoggedInId = this.user.userId;
+
    }
 
   ngOnInit(): void {
       this.visits = [];
       this.holidayLocationVisitService.findUserHLVisits(this.userLoggedInId).subscribe(listOfHolidayLocationVisits =>{
         this.visits = listOfHolidayLocationVisits;
+
+        for(let item of this.visits){
+          console.log(item);
+        }
       })
   }
-
 }
