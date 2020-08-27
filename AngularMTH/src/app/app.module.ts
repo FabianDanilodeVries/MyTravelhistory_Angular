@@ -16,7 +16,7 @@ import { UserComponent } from './components/user/user.component';
     HeaderComponent,
     AddAccommodationComponent,
     UserComponent,
-    UserVisitOverviewComponent
+    UserVisitOverviewComponent,
   ],
   imports: [
     BrowserModule,

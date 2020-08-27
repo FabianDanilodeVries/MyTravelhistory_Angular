@@ -1,12 +1,79 @@
 <h1>Travel Overview:</h1>
 <hr>
-<table>
-    <tr *ngFor="let holidayLocationVisit of visits">
-        <td>{{holidayLocationVisit.comment}}</td>
-        <td>{{holidayLocationVisit.rating}}</td>
-        <td>{{holidayLocationVisit.datum}}</td>
-    </tr>
+
+<table id="selectedColumn" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th class="th-sm">Type</th>
+            <th class="th-sm">Name</th>
+            <th class="th-sm">Country</th>
+            <th class="th-sm">Your rating</th>
+            <th class="th-sm">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-toggle="modal" *ngFor="let visit of visits" data-target="#restaurantModal">     
+            <td *ngIf= "visit.accommodation != null">Accommodation</td>
+            <td *ngIf= "visit.accommodation != null">{{visit.accommodation.accommodationName}}</td>
+            <td *ngIf= "visit.accommodation != null">{{visit.accommodation.country}}</td>
+            <td *ngIf= "visit.restaurant != null">Restaurant</td>
+            <td *ngIf= "visit.restaurant != null">{{visit.restaurant.restaurantName}}</td>
+            <td *ngIf= "visit.restaurant != null">{{visit.restaurant.country}}</td>
+            <td>{{visit.rating}}</td>
+            <td>{{visit.datum}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Your rating</th>
+            <th>Date</th>
+        </tr>    
+      </tfoot>
 </table>
+<div class="modal fade" id="restaurantModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal"><i class="icon-xs-o-md"></i></button>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title caps"><strong>Add Restaurant Visit</strong></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="control-label col-md-4"><strong>Name:</strong></label>
+                        <input type="text" class="form-control" id="restModalname" value= ${inhoudDB[x].restaurantName} disabled />
+                        <label class="control-label col-md-4"><strong>Address:</strong></label>
+                        <input type="text" class="form-control" id="restModalAddress" value= ${inhoudDB[x].restaurantAddress} disabled/>
+                        <label class="control-label col-md-4"><strong>Country:</strong></label>
+                        <input type="text" class="form-control" id="restModalCountry" value= ${inhoudDB[x].country} disabled/>
+                        <label class="control-label col-md-4"><strong>Average rating:</strong></label>
+                        <input type="text" class="form-control" id="restModalAverageRating" value= ${inhoudDB[x].restaurantAverageRating} disabled/>
+                        <label class="control-label col-md-4"><strong>Restaurant type:</strong></label>
+                        <input type="text" class="form-control" id="restModalRestaurantType" value= ${inhoudDB[x].restaurantType} disabled/>
+                        <label class="control-label col-md-4"><strong>Number of tables:</strong></label>
+                        <input type="text" class="form-control" id="restModalNumberOfTables" value= ${inhoudDB[x].numberOfTables} disabled/>
+                        <label class="control-label col-md-4"><strong>Vegetarian options:</strong></label>
+                        <input type="text" class="form-control" id="restModalVegetarianOptions" value= ${inhoudDB[x].vegetarianOptions} disabled/>
+                        <!--                        <span class="input-group-btn"><button class="btn btn-default" type="button">Action</button></span>-->
+                        <button type="button" class="btn btn-info" onclick="localStoreChosenRestaurantIdAndName('${tempRestId}','${tempRestName}')" data-dismiss="modal">Select</button>
+                        <hr><hr>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <!--                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#accommodationModal" data-dismiss="modal"></button>-->
+                <!--                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#demo-3" data-dismiss="modal">Close current, Launch Modal #3</button>-->
+            </div>
+        </div>    
+    </div>
+</div>
+
+
 
 
 
