@@ -1,6 +1,7 @@
+import { HolidayLocationVisit } from './../../models/HolidayLocationVisit';
 import { TestBed } from '@angular/core/testing';
 import { HolidayLocationVisitService } from '../../services/holiday-location-visit.service';
-import { HolidayLocationVisit } from '../../models/HolidayLocationVisit';
+
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { Accommodation } from './../../models/Accommodation';
@@ -19,6 +20,7 @@ export class UserVisitOverviewComponent implements OnInit {
   userLoggedInId : number;
   restaurants : Restaurant[];
   accommodation : Accommodation[];
+  tempIds : number[];
 
 
   constructor(private holidayLocationVisitService: HolidayLocationVisitService) {
@@ -36,5 +38,11 @@ export class UserVisitOverviewComponent implements OnInit {
           console.log(item);
         }
       })
+  }
+
+  saveIds(clickedVisit : HolidayLocationVisit){
+    this.tempIds = [];
+    this.tempIds.push(clickedVisit.restaurantId,clickedVisit.acccommodationId);
+    console.log(this.tempIds);   
   }
 }
