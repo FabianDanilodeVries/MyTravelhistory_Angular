@@ -7,8 +7,12 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { AddAccommodationComponent } from './Components/add-accommodation/add-accommodation.component';
+import { AddAccommodationComponent } from './components/add-accommodation/add-accommodation.component';
 import { UserComponent } from './components/user/user.component';
+import { LoginRegisterComponent } from './components/login-register/login-register.component';
+import { LogInComponent } from './components/login-register/log-in/log-in.component';
+import { RegisterComponent } from './components/login-register/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +21,9 @@ import { UserComponent } from './components/user/user.component';
     AddAccommodationComponent,
     UserComponent,
     UserVisitOverviewComponent,
+    LoginRegisterComponent,
+    LogInComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

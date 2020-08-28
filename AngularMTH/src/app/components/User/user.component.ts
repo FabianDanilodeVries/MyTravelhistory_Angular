@@ -10,6 +10,10 @@ export class UserComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+     //this.visits = [];
+     //his.holidayLocationVisitService.findUserHLVisits(userId : string).subscribe(listOfHolidayLocationVisits =>{
+        //this.visits = listOfHolidayLocationVisits;
+     //})
   }
 
 }
