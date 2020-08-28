@@ -4,6 +4,6 @@ export class HolidayLocationVisit{
     rating: number;
     date: string;
     restaurantId: number;
-    acccommodationId: number;
+    accommodationId: number;
     userId: number;
 }
