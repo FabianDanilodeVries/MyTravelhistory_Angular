@@ -1,4 +1,8 @@
+import { LogInRegisterService } from 'src/app/services/log-in-register.service';
+import { LogInCredentials } from 'src/app/models/LogInCredentials';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserDto } from 'src/app/models/UserDto';
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +11,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
-
+  userLogInInput : LogInCredentials;
+  static userLoggedIn = new UserDto();
+  uName : string;
+  uPassword : string;
+  userVerified : boolean;
+  
+  constructor(private logInRegisterService : LogInRegisterService, private router: Router) { 
+    
+  }
+  
   ngOnInit(): void {
   }
 
+  logIn(){
+    this.userLogInInput = new LogInCredentials();
+    this.userLogInInput.userName = this.uName;
+    this.userLogInInput.password = this.uPassword;
+    
+    // POST for checking whether credentials are valid
+    this.logInRegisterService.checkLogInCredentials(this.userLogInInput).subscribe(data => {
+      // When valid we proceed to...
+      this.createUserLoggedIn(this.uName);
+      
+      
+    });
+  }
+  createUserLoggedIn(userName : string){
+    console.log("are we getting here??")
+    // GET for userDTO
+    this.logInRegisterService.getUserDto(userName).subscribe(userData =>{
+      console.log("are we getting here as well??")
+        //Saving the userDto in the static field.
+        LogInComponent.userLoggedIn = userData;;
+        console.log(LogInComponent.userLoggedIn);
+        // Allow visiting the user overview site
+        this.router.navigateByUrl('/user');
+    })
+  }
+
+  getUserLoggedInId(){
+    return LogInComponent.userLoggedIn.userId;
+  }
 }
