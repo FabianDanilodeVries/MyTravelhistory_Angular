@@ -40,7 +40,7 @@ export class UserVisitOverviewComponent implements OnInit {
       this.visits = [];
       this.holidayLocationVisitService.findUserHLVisits(LogInComponent.userLoggedIn.userId).subscribe(listOfHolidayLocationVisits =>{
         for(let vis of listOfHolidayLocationVisits){
-          
+          vis.datum = this.datepipe.transform(vis.datum, 'yyyy/MM/dd');
         }
         this.visits = listOfHolidayLocationVisits;
 
