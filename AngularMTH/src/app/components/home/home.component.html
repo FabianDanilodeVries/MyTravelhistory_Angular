@@ -1,13 +1,13 @@
 <app-header></app-header>
 <div id="wrapper">
   <div id="imageText">
-    <h5>Welcome</h5>
+    <h5>Welcome {{userName}}</h5>
     <div id="imageA">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac rutrum velit. Integer quis lectus nunc. Mauris pulvinar risus non accumsan venenatis. Aliquam id tincidunt urna, vehicula imperdiet nunc. Sed rutrum urna eu metus pretium, quis maximus justo varius. Sed facilisis sapien leo, quis pulvinar purus pharetra et. Pellentesque et ante sagittis, laoreet erat nec, volutpat arcu. Aliquam semper enim nec sollicitudin commodo. Fusce tristique odio arcu, at gravida orci ornare id. Aenean nulla turpis, lobortis ac rutrum ut, laoreet in diam. Suspendisse in elementum ex, ac consectetur sem. Aliquam erat volutpat.</div>
     <button id="aboutOnImage" type="button" onClick="document.getElementById('about').scrollIntoView();">About us</button>
   </div>
 </div>
 
-<div id="homeBigButtons">
+<div id="homeBigButtons" routerLink="/user">
   <div class="BB" id="BB1">
     <div class="BBcontent">
       <img class="BBimg" src="../../../assets/map.png">
