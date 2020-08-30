@@ -42,7 +42,7 @@ export class UserVisitOverviewComponent implements OnInit {
 
   saveIds(clickedVisit : HolidayLocationVisit){
     this.tempIds = [];
-    this.tempIds.push(clickedVisit.restaurantId,clickedVisit.acccommodationId);
-    console.log(this.tempIds);   
+    this.tempIds.push(clickedVisit.restaurantId,clickedVisit.accommodationId);
+    console.log(this.tempIds);
   }
 }

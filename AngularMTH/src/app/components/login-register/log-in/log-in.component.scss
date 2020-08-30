@@ -1,56 +1,74 @@
 #logindiv {
   position: relative;
-  padding: 50px, 0px, 50px;
-  width: 400px;
-  background-color: rgba(4,0,18,0.8);
-  border-radius: 20px;
-  box-shadow: 10px 10px 10px rgba(4, 0, 18, 0.8) inset,-10px -10px 10px rgba(4, 0, 18, 0.8) inset;
-  text-align: center;
+  width: 350px;
   float: right;
 }
-h4 {
-  color: rgba(255,255,255,0.8)
+h5 {
+  color: rgb(220,220,220);
+  text-align: center;
+  font-weight: bold;
+}
+#inputsLogin {
+  width: 80%;
+  margin: auto;
 }
 #userNameLogIn, #passwordLogIn {
   text-align: center;
-  color: white;
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255,255,255,0.5);
+  color: rgb(35, 39, 43);
   border: none;
-  width: 80%;
+  border-radius: 5px;
+  width: 100%;
   height: 35px;
-  border-radius: 25px;
-  box-shadow: -2px -2px 5px rgba(4, 0, 18, 0.4) inset;
-  margin-bottom: 20px;
+  box-shadow: -2px -2px 5px rgb(56, 62, 69) inset;
+  transition: background-color 0.2s;
+}
+#userNameLogIn::placeholder, #passwordLogIn::placeholder {
+  color: rgb(75, 83, 92);
 }
 #userNameLogIn {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 #passwordLogIn {
   margin-bottom: 5px;
 }
+#userNameLogIn:hover, #passwordLogIn:hover {
+  background-color: rgba(255,255,255,0.8);
+}
+#userNameLogIn:focus, #passwordLogIn:focus {
+  background-color: rgba(255,255,255,0.8);
+  outline: none;
+}
 #logindiv-content {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  color: rgba(255,255,255,0.6);
+  color: rgb(220,220,220);
 }
 #checkbox {
   border-radius: 25px;
 }
 #bar {
-  border: 0.5px solid rgba(255,255,255,0.15);
+  border: 0.5px solid rgb(101, 230, 252);
   width: 10%;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 #loginbutton {
-  background-color: rgba(255,255,255,0.8);
-  border: none;
-  margin-top: 10px;
-  width: 80%;
-  height: 35px;
-  border-radius: 25px;
-  color: rgba(4, 0, 18, 0.8);
-  font-size: 1.2em;
-  font-weight: bolder;
-  box-shadow: -2px -2px 5px rgba(4, 0, 18, 0.5) inset;
+  background-color: rgba(101, 230, 252,0);
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(101, 230, 252);
+  border-radius: 5px;
+  margin-top: 73px;
+  width: 100%;
+  height: 45px;
+  color: rgb(101, 230, 252);
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
 }
+#loginbutton:hover {
+  background-color: rgba(101, 230, 252, 1);
+  color: rgb(56, 62, 69);
+}
+#loginbutton:focus {
+  outline:none;
+}
+

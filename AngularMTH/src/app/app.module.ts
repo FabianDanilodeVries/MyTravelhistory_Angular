@@ -8,10 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { AddAccommodationComponent } from './components/add-accommodation/add-accommodation.component';
-import { UserComponent } from './components/user/user.component';
+import { AddRestaurantComponent } from './components/add-restaurant/add-restaurant.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { LogInComponent } from './components/login-register/log-in/log-in.component';
 import { RegisterComponent } from './components/login-register/register/register.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -19,11 +20,12 @@ import { RegisterComponent } from './components/login-register/register/register
     AppComponent,
     HeaderComponent,
     AddAccommodationComponent,
-    UserComponent,
+    AddRestaurantComponent,
     UserVisitOverviewComponent,
     LoginRegisterComponent,
     LogInComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

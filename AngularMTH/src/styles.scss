@@ -1,5 +1,12 @@
+html {
+  scroll-behavior: smooth;
+}
+app-root {
+  font-family: 'Quicksand', sans-serif;
+    color: rgb(56, 62, 69);
+}
 app-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
 }
