@@ -26,7 +26,8 @@ export class UserVisitOverviewComponent implements OnInit {
   tempAcc : Accommodation;
   userName : string;
   whichModal : any;
-  tempDate : string;
+  dataTarget : HTMLElement;
+  isARestaurant : boolean;
 
 
   constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe) {
@@ -45,34 +46,27 @@ export class UserVisitOverviewComponent implements OnInit {
         this.visits = listOfHolidayLocationVisits;
 
       })
-      
   }
 
   saveIds(clickedVisit : HolidayLocationVisit){
+    
     this.tempVisit = clickedVisit;
-    this.tempDate = this.datepipe.transform(this.tempVisit.datum, 'yyyy/MM/dd');
-    this.tempVisit.datum = this.tempDate;
-    if(clickedVisit["restaurant"] != null){
-      
-      this.tempRest = new Restaurant();
-      this.tempRest = clickedVisit["restaurant"];
-      this.whichModal = document.getElementById("whichModal");
-      this.whichModal.dataset.target = "#restModal"
+    if(this.tempVisit.visitType == "accommodation"){
+      this.isARestaurant = false;
+      console.log("accommodation");
+      this.tempAcc = this.tempVisit["accommodation"];
+      console.log(this.tempAcc);
     }else{
-      this.tempAcc = new Accommodation();
-      this.tempAcc = clickedVisit["accommodation"];
-      this.whichModal = document.getElementById("whichModal");
-      this.whichModal.dataset.target = "#accModal"
+      this.isARestaurant = true;
+      console.log("restaurant");
+      this.tempRest = this.tempVisit["restaurant"];
+      console.log(this.tempRest);
     }
-    
-    console.log(this.tempDate);
-    console.log(this.tempAcc.accId);
-    console.log(this.tempRest);
-    
-    
-    // this.tempIds.push(clickedVisit.restaurantId,clickedVisit.acccommodationId);
-    // console.log(this.tempId["accommodation"]["accommodationName"]);
-    // console.log(this.tempId);
+  }
 
+  deleteVisit(){
+    this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{
+      
+    })
   }
 }

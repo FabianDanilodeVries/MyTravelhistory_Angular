@@ -6,4 +6,5 @@ export class HolidayLocationVisit{
     restaurantId: number;
     accommodationId: number;
     userId: number;
+    visitType : string;
 }
