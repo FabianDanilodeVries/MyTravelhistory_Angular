@@ -22,7 +22,6 @@ export class LogInRegisterService {
 
 
    registerUser(newUser: Register): Observable<Register>{
-     console.log("we get here");
      return this.http.post<Register>('http://localhost:8082/user/createNewUser',newUser);
    }
 
@@ -31,7 +30,6 @@ export class LogInRegisterService {
   }
 
   getUserDto(userName: string):Observable<UserDto>{
-    console.log("we got here");
     return this.http.get<UserDto>('http://localhost:8082/user/findByUserName/' + userName);
   }
 }

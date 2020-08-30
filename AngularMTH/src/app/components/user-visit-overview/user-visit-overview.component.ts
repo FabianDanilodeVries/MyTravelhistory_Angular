@@ -8,6 +8,7 @@ import { User } from 'src/app/models/User';
 import { Accommodation } from './../../models/Accommodation';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { LogInComponent } from '../login-register/log-in/log-in.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-visit-overview',
@@ -20,25 +21,58 @@ export class UserVisitOverviewComponent implements OnInit {
   visits: HolidayLocationVisit[];
   userLoggedInId : number;
 
-  tempIds : number[];
+  tempVisit : HolidayLocationVisit;
+  tempRest : Restaurant;
+  tempAcc : Accommodation;
   userName : string;
+  whichModal : any;
+  tempDate : string;
 
 
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService) {
+  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe) {
     this.userName = LogInComponent.userLoggedIn.userName;
+    this.tempRest = new Restaurant();
+    this.tempAcc = new Accommodation();
+    this.tempVisit = new HolidayLocationVisit();
    }
 
   ngOnInit(): void {
       this.visits = [];
       this.holidayLocationVisitService.findUserHLVisits(LogInComponent.userLoggedIn.userId).subscribe(listOfHolidayLocationVisits =>{
+        for(let vis of listOfHolidayLocationVisits){
+          
+        }
         this.visits = listOfHolidayLocationVisits;
 
       })
+      
   }
 
   saveIds(clickedVisit : HolidayLocationVisit){
-    this.tempIds = [];
+    this.tempVisit = clickedVisit;
+    this.tempDate = this.datepipe.transform(this.tempVisit.datum, 'yyyy/MM/dd');
+    this.tempVisit.datum = this.tempDate;
+    if(clickedVisit["restaurant"] != null){
+      
+      this.tempRest = new Restaurant();
+      this.tempRest = clickedVisit["restaurant"];
+      this.whichModal = document.getElementById("whichModal");
+      this.whichModal.dataset.target = "#restModal"
+    }else{
+      this.tempAcc = new Accommodation();
+      this.tempAcc = clickedVisit["accommodation"];
+      this.whichModal = document.getElementById("whichModal");
+      this.whichModal.dataset.target = "#accModal"
+    }
+    
+    console.log(this.tempDate);
+    console.log(this.tempAcc.accId);
+    console.log(this.tempRest);
+    
+    
     // this.tempIds.push(clickedVisit.restaurantId,clickedVisit.acccommodationId);
-    console.log(this.tempIds);   
+    // console.log(this.tempId["accommodation"]["accommodationName"]);
+    // console.log(this.tempId);
+
   }
 }

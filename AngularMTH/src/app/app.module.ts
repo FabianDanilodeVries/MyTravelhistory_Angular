@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { LogOutButtonComponent } from './components/header/log-out-button/log-out-button.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -37,7 +38,7 @@ import { LogOutButtonComponent } from './components/header/log-out-button/log-ou
     HttpClientModule
   ],
   providers: [
-    // place services here
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class HolidayLocationVisitService {
 
    
    findUserHLVisits(userId: number): Observable<HolidayLocationVisit[]>{
-     console.log(userId);
+    //  console.log(userId);
     return this.http.get<HolidayLocationVisit[]>('http://localhost:8082/HLVisit/findUserHLVisits/'+ userId)
    }
 }

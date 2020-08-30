@@ -38,10 +38,8 @@ export class LogInComponent implements OnInit {
     });
   }
   createUserLoggedIn(userName : string){
-    console.log("are we getting here??")
     // GET for userDTO
     this.logInRegisterService.getUserDto(userName).subscribe(userData =>{
-      console.log("are we getting here as well??")
         //Saving the userDto in the static field.
         LogInComponent.userLoggedIn = userData;;
         console.log(LogInComponent.userLoggedIn);
