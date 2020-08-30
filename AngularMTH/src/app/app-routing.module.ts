@@ -9,8 +9,8 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 const routes: Routes = [
 
 {path: "", component: LoginRegisterComponent},
-{path: "user/add-accommodation", component: AddAccommodationComponent},
-{path: "user/add-restaurant", component: AddRestaurantComponent},
+{path: "add-accommodation", component: AddAccommodationComponent},
+{path: "add-restaurant", component: AddRestaurantComponent},
 {path: "user", component: UserVisitOverviewComponent}
 ];
 
