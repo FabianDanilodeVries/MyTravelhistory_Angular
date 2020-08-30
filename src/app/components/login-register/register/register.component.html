@@ -1,0 +1,20 @@
+<div id="registerdiv">
+    <div id="registerdiv-content">
+      <h4>Register new user:</h4>
+      <hr id="bar">
+  
+      <form class="registerForm">
+        <label for="userNameRegister">User Name:</label><br/>
+        <input type="text" id="userNameRegister" required="required" pattern="[A-Za-z0-9]{1,20}"><br/>
+        <label for="emailRegister">Email Address:</label><br/>
+        <input type = "text" id="emailRegister" required="required" pattern="[A-Za-z0-9]{1,20}"><br/>
+        <label for="passwordRegister">New Password:</label><br/>
+        <input input type="password" id="passwordRegister" required="required" pattern="[A-Za-z0-9]{1,20}"><br/>
+        <input type="checkbox" onclick="showPassword('passwordRegister')"  > Show password
+      </form>
+  
+  
+      <button id="registerbutton" onclick="registerNewUser()">Submit</button>
+      <div id="successfullCreation"></div>
+    </div>
+  </div>
