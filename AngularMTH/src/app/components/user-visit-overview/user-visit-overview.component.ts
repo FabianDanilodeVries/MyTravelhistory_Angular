@@ -9,6 +9,7 @@ import { Accommodation } from './../../models/Accommodation';
 import { Restaurant } from 'src/app/models/Restaurant';
 import { LogInComponent } from '../login-register/log-in/log-in.component';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-visit-overview',
@@ -30,7 +31,7 @@ export class UserVisitOverviewComponent implements OnInit {
   isARestaurant : boolean;
 
 
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe) {
+  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe, private router: Router) {
     this.userName = LogInComponent.userLoggedIn.userName;
     this.tempRest = new Restaurant();
     this.tempAcc = new Accommodation();
@@ -66,6 +67,7 @@ export class UserVisitOverviewComponent implements OnInit {
 
   deleteVisit(){
     this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{
+      this.ngOnInit();
       
     })
   }
