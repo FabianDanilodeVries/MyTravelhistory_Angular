@@ -3,11 +3,12 @@
     <h5>Register</h5>
     <hr id="bar">
     <div id="inputsRegister">
-        <input type="text" id="userNameRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="Username"><br/>
-        <input type="text" id="emailRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="E-mail"><br/>
-        <input input type="password" id="passwordRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="Password"><br/>
+        <input type="text" id="userNameRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="Username" [(ngModel)]="userNameReg" name="firstReg"><br/>
+        <input type="text" id="emailRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="E-mail" [(ngModel)]="emailReg" name="secondReg"><br/>
+        <input input type="password" id="passwordRegister" required="required" pattern="[A-Za-z0-9]{1,20}" autocomplete="off" placeholder="Password" [(ngModel)]="passwordReg" name="thirdReg"><br/>
         <input type="checkbox" onclick="showPassword('passwordRegister')"  > Show password
-        <button id="registerbutton" onclick="registerNewUser()">Register</button>
+        <button id="registerbutton" (click)="registerNewUser()">Register</button>
+        <div id="successfullCreation"></div>
     </div>
   </div>
 </div>

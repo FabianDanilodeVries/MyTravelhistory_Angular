@@ -16,6 +16,11 @@ export class HolidayLocationVisitService {
 
    
    findUserHLVisits(userId: number): Observable<HolidayLocationVisit[]>{
+    //  console.log(userId);
     return this.http.get<HolidayLocationVisit[]>('http://localhost:8082/HLVisit/findUserHLVisits/'+ userId)
+   }
+
+   deleteUserVisit(visitId: number): Observable<any>{
+     return this.http.delete<number>('http://localhost:8082/HLVisit/deleteHLVisit/' + visitId);
    }
 }

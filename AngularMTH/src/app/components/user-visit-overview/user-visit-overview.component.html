@@ -34,9 +34,9 @@
 </table>
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
+      <div *ngIf="isARestaurant == true" class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <h5 id="exampleModalLabel" > ({{tempRest.restaurantName}} {{tempVisit.datum}})</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -44,24 +44,86 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Country: </label>
-              <input type="text" class="form-control" id="recipient-name" disabled>
-            </div>t
+              <label for="recipient-name" class="col-form-label">Type: </label>
+              <input type="text" class="form-control" id="recipient-name" value = {{tempRest.restaurantType}} disabled>
+            </div>
             <div class="form-group">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text" disabled></textarea>
+              <label for="recipient-name" class="col-form-label">Address: </label>
+              <input type="text" class="form-control" id="recipient-name" value = '{{tempRest.restaurantAddress}} - {{tempRest.country}}' disabled>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"># Tables: </label>
+              <input type="text" class="form-control" id="recipient-name" value = {{tempRest.numberOfTables}} disabled>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Vegetarian Options:</label>
+              <textarea class="form-control" id="message-text" value = {{tempRest.vegetarianOptions}} disabled></textarea>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Average rating (#): </label>
+              <input type="text" class="form-control" id="recipient-name" value = '{{tempRest.restaurantAverageRating}} (#{{tempRest.ratingCount}})' disabled>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Your comment:</label>
+              <textarea class="form-control" id="message-text" value = {{tempVisit.comment}} disabled></textarea>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Your rating:</label>
+              <textarea class="form-control" id="message-text" value = {{tempVisit.rating}} disabled></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
+          <button type="button" class="btn btn-danger" (click)="deleteVisit()" data-dismiss="modal">Delete visit</button>
+        </div>
+      </div>
+      <div *ngIf="isARestaurant == false" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" > ({{tempAcc.accommodationName}} {{tempVisit.datum}})</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Type: </label>
+              <input type="text" class="form-control" id="recipient-name" value = {{tempAcc.accommodationType}} disabled>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Address: </label>
+              <input type="text" class="form-control" id="recipient-name" value = '{{tempAcc.accommodationAddress}} - {{tempAcc.country}}' disabled>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"># Rooms: </label>
+              <input type="text" class="form-control" id="recipient-name" value = {{tempAcc.numberOfRooms}} disabled>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Average rating (#): </label>
+              <input type="text" class="form-control" id="recipient-name" value = '{{tempAcc.accommodationAverageRating}} (#{{tempAcc.ratingCount}})' disabled>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Your comment:</label>
+              <textarea class="form-control" id="message-text" value = {{tempVisit.comment}} disabled></textarea>
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Your rating:</label>
+              <textarea class="form-control" id="message-text" value = {{tempVisit.rating}} disabled></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" (click)="deleteVisit()" class="btn btn-primary" data-dismiss="modal">Delete visit</button>
         </div>
       </div>
     </div>
 </div>
 
+  <div class="modal fade bd-example-modal-lg" id="accommodation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
 
-
-
-
+    </div>
+  </div>
+<hr>

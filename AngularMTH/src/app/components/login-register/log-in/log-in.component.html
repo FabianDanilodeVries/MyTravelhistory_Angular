@@ -3,10 +3,11 @@
     <h5>Sign in</h5>
     <hr id="bar">
     <div id="inputsLogin">
-        <input input type="text" id="userNameLogIn" autocomplete="off" placeholder="Username"/><br/>
-        <input input type="password" id="passwordLogIn" autocomplete="off" placeholder="Password"/><br/>
+        <input input type="text" id="userNameLogIn" autocomplete="off" [(ngModel)]="uName" name="first" placeholder="Username"/><br/>
+        <input input type="password" id="passwordLogIn" autocomplete="off" [(ngModel)]="uPassword" name="second" placeholder="Password"/><br/>
         <input id="checkbox" type="checkbox" onclick="showPassword('passwordLogIn')" autocomplete="off"/> Show Password
-        <button id="loginbutton" onclick="logIn()" routerLink="/home">Sign in</button>
+        <button id="loginbutton" (click)="logIn()">Sign in</button>
+        <div id="logInFailureMessage"></div>
     </div>
   </div>
 </div>

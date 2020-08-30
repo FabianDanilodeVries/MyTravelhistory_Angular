@@ -1,3 +1,4 @@
+import { LogInCredentials } from './../../models/LogInCredentials';
 import { HolidayLocationVisit } from './../../models/HolidayLocationVisit';
 import { TestBed } from '@angular/core/testing';
 import { HolidayLocationVisitService } from '../../services/holiday-location-visit.service';
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { Accommodation } from './../../models/Accommodation';
 import { Restaurant } from 'src/app/models/Restaurant';
+import { LogInComponent } from '../login-register/log-in/log-in.component';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-visit-overview',
@@ -16,33 +20,55 @@ export class UserVisitOverviewComponent implements OnInit {
 
 
   visits: HolidayLocationVisit[];
-  user: User;
   userLoggedInId : number;
-  restaurants : Restaurant[];
-  accommodation : Accommodation[];
-  tempIds : number[];
+
+  tempVisit : HolidayLocationVisit;
+  tempRest : Restaurant;
+  tempAcc : Accommodation;
+  userName : string;
+  whichModal : any;
+  dataTarget : HTMLElement;
+  isARestaurant : boolean;
 
 
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService) {
-    this.user = new User;
-    this.userLoggedInId = this.user.userId;
-
+  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe, private router: Router) {
+    this.userName = LogInComponent.userLoggedIn.userName;
+    this.tempRest = new Restaurant();
+    this.tempAcc = new Accommodation();
+    this.tempVisit = new HolidayLocationVisit();
    }
 
   ngOnInit(): void {
       this.visits = [];
-      this.holidayLocationVisitService.findUserHLVisits(this.userLoggedInId).subscribe(listOfHolidayLocationVisits =>{
+      this.holidayLocationVisitService.findUserHLVisits(LogInComponent.userLoggedIn.userId).subscribe(listOfHolidayLocationVisits =>{
+        for(let vis of listOfHolidayLocationVisits){
+          vis.datum = this.datepipe.transform(vis.datum, 'yyyy/MM/dd');
+        }
         this.visits = listOfHolidayLocationVisits;
 
-        for(let item of this.visits){
-          console.log(item);
-        }
       })
   }
 
   saveIds(clickedVisit : HolidayLocationVisit){
-    this.tempIds = [];
-    this.tempIds.push(clickedVisit.restaurantId,clickedVisit.accommodationId);
-    console.log(this.tempIds);
+
+    this.tempVisit = clickedVisit;
+    if(this.tempVisit.visitType == "accommodation"){
+      this.isARestaurant = false;
+      console.log("accommodation");
+      this.tempAcc = this.tempVisit["accommodation"];
+      console.log(this.tempAcc);
+    }else{
+      this.isARestaurant = true;
+      console.log("restaurant");
+      this.tempRest = this.tempVisit["restaurant"];
+      console.log(this.tempRest);
+    }
+  }
+
+  deleteVisit(){
+    this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{
+      this.ngOnInit();
+
+    })
   }
 }
