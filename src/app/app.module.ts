@@ -13,6 +13,7 @@ import { LogInComponent } from 'src/app/components/login-register/log-in/log-in.
 import { RegisterComponent } from 'src/app/components/login-register/register/register.component';
 import { LogOutButtonComponent } from './components/header/log-out-button/log-out-button.component';
 import { DatePipe } from '@angular/common';
+import { FooterComponent} from 'src/app/components/footer/footer.component';
 
 
 
@@ -29,6 +30,7 @@ import { DatePipe } from '@angular/common';
     LogOutButtonComponent,
     LogOutButtonComponent,
     LogInComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

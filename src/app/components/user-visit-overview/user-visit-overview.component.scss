@@ -1,3 +1,70 @@
-#selectedColumn{
-    max-width: 75%;
+#overview-wrapper {
+    position: relative;
+    top: 100px;
+      max-width: 50%;
+      margin: auto;
+  }
+  app-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%
+  }
+
+#wrapper {
+      background-image: url('../../../assets/TravelOverview1.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+      margin-top: 50px;
+      margin-left: 20px;
+      height:500px;
+  }
+
+#travelOverview {
+    float: right;
+    margin-right: 30px;
+}
+
+#ColBut {
+      background-color: rgb(101, 230, 252);
+      color: black;
+      width: 40px;
+      height: 40px;
+      float: right;
+      border: none;
+      margin-right: 10px;
+  }
+  
+  .list-group-item {
+      margin-top: 10px;
+      margin-right: 10px;
+  }
+
+  .card-header {
+ 
+    background-color:  rgb(56, 62, 69);
+    font-family: 'Lobster', cursive;
+    color: rgb(101, 230, 252);
+    font-size: 1.7em;
+    margin-right: 20px;
+  }
+
+#addAcc {
+    float: right;
+    margin-top: -40px;
+    margin-right: 300px;
+    background-color: rgb(101, 230, 252);
+    color: black;
+    border: none;
+}
+
+#addRes {
+    float: right;
+    margin-top: -40px;
+    margin-right: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
+     background-color: rgb(101, 230, 252);
+    color: black;
+    border: none;
 }

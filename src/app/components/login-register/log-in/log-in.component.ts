@@ -16,11 +16,11 @@ export class LogInComponent implements OnInit {
   uName : string;
   uPassword : string;
   userVerified : boolean;
-  
-  constructor(private logInRegisterService : LogInRegisterService, private router: Router) { 
-    
+
+  constructor(private logInRegisterService : LogInRegisterService, private router: Router) {
+
   }
-  
+
   ngOnInit(): void {
   }
 
@@ -28,13 +28,15 @@ export class LogInComponent implements OnInit {
     this.userLogInInput = new LogInCredentials();
     this.userLogInInput.userName = this.uName;
     this.userLogInInput.password = this.uPassword;
-    
+
     // POST for checking whether credentials are valid
     this.logInRegisterService.checkLogInCredentials(this.userLogInInput).subscribe(data => {
       // When valid we proceed to...
       this.createUserLoggedIn(this.uName);
-      
-      
+
+
+
+
     });
   }
   createUserLoggedIn(userName : string){
@@ -44,7 +46,7 @@ export class LogInComponent implements OnInit {
         LogInComponent.userLoggedIn = userData;;
         console.log(LogInComponent.userLoggedIn);
         // Allow visiting the user overview site
-        this.router.navigateByUrl('/user');
+        this.router.navigateByUrl('/home');
     })
   }
 

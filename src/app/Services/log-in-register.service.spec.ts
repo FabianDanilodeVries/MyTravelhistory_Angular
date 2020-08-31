@@ -1,22 +1,16 @@
-import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { TestBed } from '@angular/core/testing';
 
-import { HolidayLocationVisit } from 'src/app/Model/HolidayLocationVisit';
+import { LogInRegisterService } from './log-in-register.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+describe('LogInRegisterService', () => {
+  let service: LogInRegisterService;
 
-export class HolidayLocationVisitService {
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(LogInRegisterService);
+  });
 
-  constructor(private http: HttpClient) {
-  
-   }
-
-   
-   findUserHLVisits(userId: number): Observable<HolidayLocationVisit[]>{
-    //  console.log(userId);
-    return this.http.get<HolidayLocationVisit[]>('http://localhost:8082/HLVisit/findUserHLVisits/'+ userId)
-   }
-}
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

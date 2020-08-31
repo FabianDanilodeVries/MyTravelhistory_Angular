@@ -1,0 +1,28 @@
+#wrapper {
+    background-image: url("../../../assets/image1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height:100%;
+  }
+  #loginRegisterContent {
+    position: relative;
+    top: 175px;
+  }
+  #boxes {
+    background-color: rgb(56, 62, 69);
+    height: 510px;
+    width: 700px;
+    position: relative;
+    margin: auto;
+    padding-top: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7)
+  }
+  h1 {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    color: rgb(101, 230, 252);
+    font-size: 3em;
+    margin-bottom: 40px;
+  }

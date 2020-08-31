@@ -1,0 +1,130 @@
+app-header {
+    z-index:1;
+  }
+  #wrapper {
+    background-image: url("../../../assets/image2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height:100%;
+    min-height: 900px;
+  }
+  #imageText {
+    position: relative;
+    text-align: center;
+    width: 50%;
+    min-width:450px;
+    margin: auto;
+    top: 250px;
+    color: white;
+  }
+  #imageText > h5 {
+    opacity: 0;
+    font-family: 'Lobster', cursive;
+    font-size: 7em;
+    animation: slideInFromLeft 1.5s 0.5s forwards;
+  }
+  #imageA {
+    opacity: 0;
+    font-size: 1.2em;
+    animation: fadeIn 2s 2s forwards;
+  }
+  #aboutOnImage {
+    opacity: 0;
+    background-color: rgba(255,255,255,0);
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(255,255,255);
+    border-radius: 5px;
+    margin-top: 73px;
+    width: 150px;
+    height: 45px;
+    color: rgb(255,255,255);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    animation: fadeIn 2s 2s forwards;
+  }
+  #aboutOnImage:hover {
+    background-color: rgba(255,255,255, 1);
+    color: rgb(101, 230, 252);
+  }
+  #aboutOnImage:focus {
+    outline:none;
+  }
+  #about {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
+  #bar {
+    border: 0.5px solid rgb(101, 230, 252);
+    width: 50px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+  }
+  @keyframes slideInFromLeft {
+    0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    }
+    100% {
+    transform: translateY(0);
+    opacity: 1;
+    }
+  }
+  #homeBigButtons {
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    width: 600px;
+    height: 200px;
+  }
+  .BB {
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+  }
+  .BB:focus {
+    outline:none;
+  }
+  #BB2 {
+    border-left: solid;
+    border-right: solid;
+    border-width: 0.5px;
+    border-color: rgb(230,230,230);
+  }
+  .BBcontent {
+    position: relative;
+    top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .BBcontent > h5 {
+    font-weight: bold;
+  }
+  .BBcontent > p {
+    font-weight: light;
+    font-size: 0.8em;
+  }
+  .BBimg {
+    width: 30%;
+    margin-bottom: 5px;
+  }
+  .BB:hover {
+    box-shadow: 0px 2px 20px rgba(56, 62, 69, 0.3);
+  }
+  app-footer {
+    position: relative;
+    bottom: 0;
+    width: 100%
+  }

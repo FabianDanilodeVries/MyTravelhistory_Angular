@@ -1,14 +1,15 @@
-
+import { LogInCredentials } from 'src/app/Model/LogInCredentials';
 import { HolidayLocationVisit } from 'src/app/Model/HolidayLocationVisit';
 import { TestBed } from '@angular/core/testing';
 import { HolidayLocationVisitService } from '../../services/holiday-location-visit.service';
 
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/Model/User' ;
+import { User } from 'src/app/Model/User';
 import { Accommodation } from 'src/app/Model/Accommodation';
 import { Restaurant } from 'src/app/Model/Restaurant';
-import { LogInComponent } from 'src/app/components/login-register/log-in/log-in.component';
+import { LogInComponent } from '../login-register/log-in/log-in.component';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-visit-overview',
@@ -26,10 +27,11 @@ export class UserVisitOverviewComponent implements OnInit {
   tempAcc : Accommodation;
   userName : string;
   whichModal : any;
-  tempDate : string;
+  dataTarget : HTMLElement;
+  isARestaurant : boolean;
 
 
-  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe) {
+  constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe, private router: Router) {
     this.userName = LogInComponent.userLoggedIn.userName;
     this.tempRest = new Restaurant();
     this.tempAcc = new Accommodation();
@@ -45,34 +47,28 @@ export class UserVisitOverviewComponent implements OnInit {
         this.visits = listOfHolidayLocationVisits;
 
       })
-      
   }
 
   saveIds(clickedVisit : HolidayLocationVisit){
-    this.tempVisit = clickedVisit;
-    this.tempDate = this.datepipe.transform(this.tempVisit.datum, 'yyyy/MM/dd');
-    this.tempVisit.datum = this.tempDate;
-    if(clickedVisit["restaurant"] != null){
-      
-      this.tempRest = new Restaurant();
-      this.tempRest = clickedVisit["restaurant"];
-      this.whichModal = document.getElementById("whichModal");
-      this.whichModal.dataset.target = "#restModal"
-    }else{
-      this.tempAcc = new Accommodation();
-      this.tempAcc = clickedVisit["accommodation"];
-      this.whichModal = document.getElementById("whichModal");
-      this.whichModal.dataset.target = "#accModal"
-    }
-    
-    console.log(this.tempDate);
-    console.log(this.tempAcc.accId);
-    console.log(this.tempRest);
-    
-    
-    // this.tempIds.push(clickedVisit.restaurantId,clickedVisit.acccommodationId);
-    // console.log(this.tempId["accommodation"]["accommodationName"]);
-    // console.log(this.tempId);
 
+    this.tempVisit = clickedVisit;
+    if(this.tempVisit.visitType == "accommodation"){
+      this.isARestaurant = false;
+      console.log("accommodation");
+      this.tempAcc = this.tempVisit["accommodation"];
+      console.log(this.tempAcc);
+    }else{
+      this.isARestaurant = true;
+      console.log("restaurant");
+      this.tempRest = this.tempVisit["restaurant"];
+      console.log(this.tempRest);
+    }
+  }
+
+  deleteVisit(){
+    this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{
+      this.ngOnInit();
+
+    })
   }
 }
