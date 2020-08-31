@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from'@angular/common/http';
 import { Observable } from 'rxjs';
 import { Register } from '../models/Register';
 import { LogInCredentials } from '../models/LogInCredentials';
+import { environment } from '../../environments/environment';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -22,14 +23,14 @@ export class LogInRegisterService {
 
 
    registerUser(newUser: Register): Observable<Register>{
-     return this.http.post<Register>('http://localhost:8082/user/createNewUser',newUser);
+     return this.http.post<Register>('${environment.apiUrl}/user/createNewUser',newUser);
    }
 
    checkLogInCredentials(someCredentials: LogInCredentials):Observable<any>{
-    return this.http.post<LogInCredentials>('http://localhost:8082/user/logIn', someCredentials);
+    return this.http.post<LogInCredentials>('${environment.apiUrl}/user/logIn', someCredentials);
   }
 
   getUserDto(userName: string):Observable<UserDto>{
-    return this.http.get<UserDto>('http://localhost:8082/user/findByUserName/' + userName);
+    return this.http.get<UserDto>('${environment.apiUrl}/user/findByUserName/' + userName);
   }
 }

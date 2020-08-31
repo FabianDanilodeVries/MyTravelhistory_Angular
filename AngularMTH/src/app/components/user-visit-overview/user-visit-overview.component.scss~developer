@@ -1,0 +1,12 @@
+#overview-wrapper {
+  position: relative;
+  top: 100px;
+    max-width: 50%;
+    margin: auto;
+}
+app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%
+}
+
