@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Accommodation } from '../models/Accommodation';
+import { environment } from '../../environments/environment';
 
 
 const httpOptions = {
