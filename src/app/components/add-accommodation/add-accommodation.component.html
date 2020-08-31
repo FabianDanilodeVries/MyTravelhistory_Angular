@@ -1,15 +1,45 @@
-<body>
-<h1>Accommodations</h1>
+<app-header></app-header>
+
+<div id="wrapper"></div>
+<div class="card" style="width: 600px;" id="accommodations">
+  <div class="card-header">
+   Accommodation
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name Accommodation
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1" id="ColBut">+</button></li>
+    <div id="demo1" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="addAcc">
+        Add Accommodation
+       </button>
+    </div>
+    <li class="list-group-item">Name Accommodation
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2" id="ColBut">+</button></li>
+    <div id="demo2" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <li class="list-group-item">Name Accommodation
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3"id="ColBut">+</button></li>
+    <div id="demo3" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </ul>
+</div>
 
 <div id="searchaccommodation" class="card">
+  <div class="card-header">
+    Search Accommodation
+   </div>
   <div class="card-body">
-    <h5 class="card-title">Search Accommodation:</h5> <br>
-    <input type="test" class="form-control" id="restaurantName" aria-describedby="addRestaurant">
-    <br>
-    <button type="search" class="btn btn-primary" id="getByRestaurantName" (click)="getByAccommodationName()">Search</button>
-    <button type="buttonAdd" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Add Restaurant
-     </button>
+    <input type="test" class="form-inline" id="accommodationName" aria-describedby="addAccommodation">
+    <button type="button" class="btn btn-primary" id="searchAcc"> Search </button>
   </div>
 </div>
 
@@ -55,5 +85,5 @@
     </div>
   </div>
 </div>
-
+<app-footer></app-footer>
 

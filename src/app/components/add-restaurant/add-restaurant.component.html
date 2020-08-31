@@ -1,19 +1,47 @@
+<app-header></app-header>
 <body>
-<h1>Restaurants</h1>
-
-<div id="searchrestaurant" class="card">
-  <div class="card-body">
-    <h5 class="card-title">Search restaurants:</h5> <br>
-    <input type="test" class="form-control" id="restaurantName" aria-describedby="addRestaurant">
-    <br>
-    <button type="button" class="btn btn-primary"> Search </button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Add Restaurant
-     </button>
+  <div id="wrapper"></div>
+<div class="card" style="width: 600px;" id="restaurants">
+  <div class="card-header">
+   Restaurants
   </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name Restaurant
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1" id="ColBut">+</button></li>
+    <div id="demo1" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="addRes">
+        Add Restaurant
+       </button>
+    </div>
+    <li class="list-group-item">Name Restaurant
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2" id="ColBut">+</button></li>
+    <div id="demo2" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <li class="list-group-item">Name Restaurant
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3"id="ColBut">+</button></li>
+    <div id="demo3" class="collapse">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </ul>
 </div>
 
-
+<div id="searchrestaurant" class="card">
+  <div class="card-header">
+    Search Restaurants
+   </div>
+  <div class="card-body">
+    <input type="test" class="form-control" id="restaurantName" aria-describedby="addRestaurant">
+    <button type="button" class="btn btn-primary" id="searchRes"> Search </button>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,3 +96,4 @@
 
 
 </body>
+<app-footer></app-footer>

@@ -1,15 +1,13 @@
 <div id="logindiv">
-    <div id="logindiv-content">
-    <h4>Log in as user:</h4>
-      <hr id="bar">
-        <form class = "logInForm">
-          <label for="userNameLogIn">User Name:</label><br/>
-          <input input type="text" id="userNameLogIn"/><br/>
-          <label for="passwordLogIn">Password:</label><br/>
-          <input input type="password" id="passwordLogIn" /><br/>
-          <input id="checkbox" type="checkbox" onclick="showPassword('passwordLogIn')" autocomplete="off"/> Show Password
-        </form>
-      <button id="loginbutton" onclick="logIn()">Login</button>
-      <div id="logInFailureMessage"></div>
+  <div id="logindiv-content">
+    <h5>Sign in</h5>
+    <hr id="bar">
+    <div id="inputsLogin">
+        <input input type="text" id="userNameLogIn" autocomplete="off" [(ngModel)]="uName" name="first" placeholder="Username"/><br/>
+        <input input type="password" id="passwordLogIn" autocomplete="off" [(ngModel)]="uPassword" name="second" placeholder="Password"/><br/>
+        <input id="checkbox" type="checkbox" onclick="showPassword('passwordLogIn')" autocomplete="off"/> Show Password
+        <button id="loginbutton" (click)="logIn()">Sign in</button>
+        <div id="logInFailureMessage"></div>
     </div>
   </div>
+</div>
