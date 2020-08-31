@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+
   }
 
   registerNewUser(){
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
     this.newUser.userName = this.userNameReg;
     this.logInRegisterService.registerUser(this.newUser).subscribe(data => {
       this.isValid = "";
-      this.isValid = "Registration was successful";
+      this.isValid = "Registration was successful!";
     });
   }
 

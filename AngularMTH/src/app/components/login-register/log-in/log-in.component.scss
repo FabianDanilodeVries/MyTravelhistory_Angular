@@ -2,6 +2,7 @@
   position: relative;
   width: 350px;
   float: right;
+  color: rgb(220,220,220);
 }
 h5 {
   color: rgb(220,220,220);
@@ -38,9 +39,6 @@ h5 {
 #userNameLogIn:focus, #passwordLogIn:focus {
   background-color: rgba(255,255,255,0.8);
   outline: none;
-}
-#logindiv-content {
-  color: rgb(220,220,220);
 }
 #checkbox {
   border-radius: 25px;
