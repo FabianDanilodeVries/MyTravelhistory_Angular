@@ -1,5 +1,10 @@
 #wrapper {
   background-color: rgb(56, 62, 69);
+  height: 60px;
+  width: 100%;
+}
+#inner-wrapper {
+  display: inline;
 }
 #navtitle, .navtext {
   color: rgb(255,255,255);
@@ -8,32 +13,24 @@
   font-family: 'Lobster', cursive;
   color: rgb(101, 230, 252);
   font-size: 1.7em;
+  margin-right: 20px;
 }
 #navtitle:hover {
   text-decoration: none;
 }
-
-#logoutbutton {
-  position: relative;
-  right: 10px;
-  background-color: rgba(101, 230, 252,0);
-  font-weight: bold;
-  border: solid;
+.nav-item {
+  border-left: solid;
   border-width: 1px;
-  margin-top: 10px;
-  width: 100px;
-  height: 45px;
-  border-radius: 5px;
-  border-color: rgb(101, 230, 252);
+  border-color: rgba(255,255,255,0.10);
+}
+.nav-item a{
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.nav-item a:hover{
   color: rgb(101, 230, 252);
-  transition: all 0.2s ease-in-out;
 }
-#logoutbutton:hover {
-  background-color: rgba(101, 230, 252, 1);
-  border-color: rgba(101, 230, 252, 1);
-  color: rgb(56, 62, 69);
-}
-#logoutbutton:focus {
-  outline:none;
-}
+
+
 

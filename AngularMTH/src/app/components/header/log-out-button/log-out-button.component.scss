@@ -1,0 +1,21 @@
+#logoutbutton {
+  position: relative;
+  background-color: rgba(101, 230, 252,0);
+  font-weight: bold;
+  border: solid;
+  border-width: 1px;
+  width: 100px;
+  height: 45px;
+  border-radius: 5px;
+  border-color: rgb(101, 230, 252);
+  color: rgb(101, 230, 252);
+  transition: all 0.2s ease-in-out;
+}
+#logoutbutton:hover {
+  background-color: rgba(101, 230, 252, 1);
+  border-color: rgba(101, 230, 252, 1);
+  color: rgb(56, 62, 69);
+}
+#logoutbutton:focus {
+  outline:none;
+}

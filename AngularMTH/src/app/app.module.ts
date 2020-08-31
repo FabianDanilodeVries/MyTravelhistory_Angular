@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/login-register/register/register
 import { HomeComponent } from './components/home/home.component';
 import { LogOutButtonComponent } from './components/header/log-out-button/log-out-button.component';
 import { DatePipe } from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -30,6 +31,7 @@ import { DatePipe } from '@angular/common';
     HomeComponent,
     LoginRegisterComponent,
     LogOutButtonComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -91,6 +91,9 @@ app-header {
   height: 200px;
   width: 200px;
 }
+.BB:focus {
+  outline:none;
+}
 #BB2 {
   border-left: solid;
   border-right: solid;
@@ -118,4 +121,9 @@ app-header {
 }
 .BB:hover {
   box-shadow: 0px 2px 20px rgba(56, 62, 69, 0.3);
+}
+app-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%
 }
