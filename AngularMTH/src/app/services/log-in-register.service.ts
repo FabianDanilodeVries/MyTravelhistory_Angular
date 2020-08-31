@@ -23,14 +23,14 @@ export class LogInRegisterService {
 
 
    registerUser(newUser: Register): Observable<Register>{
-     return this.http.post<Register>('${environment.apiUrl}/user/createNewUser',newUser);
+     return this.http.post<Register>(`${environment.apiUrl}/user/createNewUser`,newUser);
    }
 
    checkLogInCredentials(someCredentials: LogInCredentials):Observable<any>{
-    return this.http.post<LogInCredentials>('${environment.apiUrl}/user/logIn', someCredentials);
+    return this.http.post<LogInCredentials>(`${environment.apiUrl}/user/logIn`, someCredentials);
   }
 
   getUserDto(userName: string):Observable<UserDto>{
-    return this.http.get<UserDto>('${environment.apiUrl}/user/findByUserName/' + userName);
+    return this.http.get<UserDto>(`${environment.apiUrl}/user/findByUserName/` + userName);
   }
 }

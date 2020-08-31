@@ -1,4 +1,4 @@
-  
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -18,10 +18,10 @@ export class AddAccommodationService {
   constructor(private http: HttpClient) { }
 
 getByAccommodationName(accommodationName: string): Observable<Accommodation> {
-  return this.http.get<Accommodation>('http://localhost:8888/findAccommodationByName');
+  return this.http.get<Accommodation>(`${environment.apiUrl}/findAccommodationByName`);
 }
 
 showAllAccommodations(): Observable <Accommodation[]> {
-  return this.http.get<Accommodation[]>('http://localhost:8888/Restaurant/showAllAccommodations');
+  return this.http.get<Accommodation[]>(`${environment.apiUrl}/Restaurant/showAllAccommodations`);
 }
 }
