@@ -19,7 +19,7 @@
     <div id="searchrestaurant" class="card">
       <div class="card-header">
         Search Restaurants
-       </div>
+      </div>
       <div class="card-body">
         <input type="test" class="form-control" id="restaurantName" aria-describedby="addRestaurant">
         <button type="button" class="btn btn-primary" id="searchRes">Search</button>
@@ -71,11 +71,10 @@
                     <label class="form-check-label" for="vegOptions">No</label>
                   </div>
                 </div>
-
                 <div id="input-model-items">
                     <div class="form-group">
                       <label for="restaurantRating">Date of visit: </label>
-                      <input type="text" class="form-control" id="yourDate" [(ngModel)]="currentYourDate" name="some3" placeholder="YYYY-MM-DD">
+                      <input type="date" class="form-control" id="yourDate" [(ngModel)]="currentYourDate" name="some3" placeholder="YYYY-MM-DD">
                     </div>
                     <div class="form-group">
                       <label for="restaurantRating">Your rating: </label>
