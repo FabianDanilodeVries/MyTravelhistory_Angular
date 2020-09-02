@@ -27,7 +27,7 @@ export class UserVisitOverviewComponent implements OnInit {
   whichModal : any;
   isARestaurant : boolean;
   nameUserLoggedIn : string;
-  
+
 
 
   constructor(private holidayLocationVisitService: HolidayLocationVisitService, public datepipe: DatePipe, private router: Router, route : ActivatedRoute) {
@@ -66,10 +66,8 @@ export class UserVisitOverviewComponent implements OnInit {
   }
 
   deleteVisit(){
-    this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{
-      this.ngOnInit();
-    })
-  }
+    this.holidayLocationVisitService.deleteUserVisit(this.tempVisit.visitId).subscribe(deleteSuccess =>{this.ngOnInit();})
+   }
 
   getUserIdFromStorage(){
     return parseInt(localStorage.getItem("loggedInUserId"));
