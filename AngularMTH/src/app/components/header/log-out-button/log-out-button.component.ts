@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogInComponent } from '../../login-register/log-in/log-in.component';
 
 @Component({
   selector: 'app-log-out-button',
@@ -15,7 +16,11 @@ export class LogOutButtonComponent implements OnInit {
 
   logout(){
     this.router.navigateByUrl("");
-
+        localStorage.removeItem("loggedInUserId");
+        localStorage.removeItem("loggedInUserName");
+        localStorage.removeItem("loggedInUserEmail");
+        localStorage.removeItem("selectedRestaurant");
+        localStorage.removeItem("selectedAccommodation");
   }
 
 }

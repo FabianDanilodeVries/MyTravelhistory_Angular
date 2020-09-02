@@ -10,15 +10,17 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
 
-{path: "", component: LoginRegisterComponent},
-{path: "add-accommodation", component: AddAccommodationComponent},
-{path: "add-restaurant", component: AddRestaurantComponent},
+{path: "", component: LoginRegisterComponent, pathMatch: "full"},
+{path: "home", component: HomeComponent},
 {path: "user", component: UserVisitOverviewComponent},
-{path: "home", component: HomeComponent}
+{path: "add-restaurant", component: AddRestaurantComponent},
+{path: "add-accommodation", component: AddAccommodationComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+}

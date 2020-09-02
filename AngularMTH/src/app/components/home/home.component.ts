@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LogInComponent } from '../login-register/log-in/log-in.component';
 
@@ -9,11 +10,14 @@ import { LogInComponent } from '../login-register/log-in/log-in.component';
 export class HomeComponent implements OnInit {
 
   userName : string;
-  constructor() {
-    this.userName = LogInComponent.userLoggedIn.userName;
-   }
 
+  constructor(private route: ActivatedRoute) {
+  }
+  
   ngOnInit(): void {
+    
+    this.userName = localStorage.getItem("loggedInUserName");
+
   }
 
 }

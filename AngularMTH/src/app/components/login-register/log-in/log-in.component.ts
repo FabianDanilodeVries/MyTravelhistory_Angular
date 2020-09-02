@@ -3,6 +3,7 @@ import { LogInCredentials } from 'src/app/models/LogInCredentials';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDto } from 'src/app/models/UserDto';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-log-in',
@@ -12,10 +13,10 @@ import { UserDto } from 'src/app/models/UserDto';
 export class LogInComponent implements OnInit {
 
   userLogInInput : LogInCredentials;
-  static userLoggedIn = new UserDto();
   uName : string;
   uPassword : string;
   userVerified : boolean;
+  userLoggedIn : UserDto;
 
   constructor(private logInRegisterService : LogInRegisterService, private router: Router) {
 
@@ -31,26 +32,15 @@ export class LogInComponent implements OnInit {
 
     // POST for checking whether credentials are valid
     this.logInRegisterService.checkLogInCredentials(this.userLogInInput).subscribe(data => {
-      // When valid we proceed to...
-      this.createUserLoggedIn(this.uName);
-
-
-
-
-    });
-  }
-  createUserLoggedIn(userName : string){
-    // GET for userDTO
-    this.logInRegisterService.getUserDto(userName).subscribe(userData =>{
-        //Saving the userDto in the static field.
-        LogInComponent.userLoggedIn = userData;;
-        console.log(LogInComponent.userLoggedIn);
+      // When valid we proceed to...GET for userDTO
+      this.logInRegisterService.getUserDto(this.uName).subscribe(userData =>{
+        //Saving in the local storage
+        localStorage.setItem('loggedInUserName', userData.userName);
+        localStorage.setItem('loggedInUserId', "" + userData.userId);        
+        localStorage.setItem('loggedInUserEmail', userData.email);
         // Allow visiting the user overview site
         this.router.navigateByUrl('/home');
-    })
-  }
-
-  getUserLoggedInId(){
-    return LogInComponent.userLoggedIn.userId;
+      })
+    });
   }
 }

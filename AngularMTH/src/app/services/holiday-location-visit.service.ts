@@ -24,4 +24,9 @@ export class HolidayLocationVisitService {
    deleteUserVisit(visitId: number): Observable<any>{
      return this.http.delete<number>(`${environment.apiUrl}/HLVisit/deleteHLVisit/` + visitId);
    }
+
+   addUserVisit(newRestaurantVisit: HolidayLocationVisit): Observable<HolidayLocationVisit>{
+     console.log(newRestaurantVisit);
+    return this.http.post<HolidayLocationVisit>(`${environment.apiUrl}/HLVisit/createNewHLVisit`,newRestaurantVisit);
+  }
 }

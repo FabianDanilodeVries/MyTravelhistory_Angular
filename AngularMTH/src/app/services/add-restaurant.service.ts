@@ -18,10 +18,10 @@ export class AddRestaurantService {
   constructor(private http: HttpClient) { }
 
 getByRestaurantName(restaurantName: string): Observable<Restaurant> {
-  return this.http.get<Restaurant>(`${environment.apiUrl}/api/restaurants/all`);
+  return this.http.get<Restaurant>(`${environment.apiUrl}/Restaurant/GetByname/{{restaurantName}}`);
 }
 
 showAllRestaurants(): Observable <Restaurant[]> {
-  return this.http.get<Restaurant[]>(`${environment.apiUrl}/showAllRestaurants`);
+  return this.http.get<Restaurant[]>(`${environment.apiUrl}/Restaurant/ShowAllRestaurants`);
 }
 }

@@ -9,6 +9,4 @@ export class Restaurant{
     restaurantType : string;
     numberOfTables : number;
     vegetarianOptions : boolean;
-    
-
 }

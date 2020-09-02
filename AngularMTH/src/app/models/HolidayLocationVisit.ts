@@ -3,8 +3,8 @@ export class HolidayLocationVisit{
     comment: string;
     rating: number;
     datum: string;
-    restaurantId: number;
-    accommodationId: number;
+    restId: number;
+    accId: number;
     userId: number;
     visitType : string;
 }
