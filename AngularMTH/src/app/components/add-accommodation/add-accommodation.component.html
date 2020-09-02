@@ -1,88 +1,93 @@
 <app-header></app-header>
-<body>
-  <div id="wrapper"></div>
-<div class="card" style="width: 600px;" id="accommodations">
-  <div class="card-header">Accommodations</div>
-  <ul class="list-group list-group-flush" *ngFor="let accommodation of accommodations">
-    <li class="list-group-item">{{accommodation.accommodationName}} - {{accommodation.country}}<button type="button" class="btn btn-info" data-toggle="collapse" [attr.data-target]="'#accommodation' + accommodation.accId" id="ColBut">+</button></li>
-    <div [attr.id]="'accommodation' + accommodation.accId" class="collapse">
-        <p><b>Type:</b> {{accommodation.accommodationType}}</p>
-        <p><b># Rooms:</b> {{accommodation.numberOfRooms}}</p>
-      <p><b>Average Rating (#):</b> {{accommodation.accommodationAverageRating}} (#{{accommodation.ratingCount}})</p>
-      <p><b>Address:</b> {{accommodation.country}}, {{accommodation.accommodationAddress}}</p>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="saveCurrentAccommodation(accommodation)" id="addAcc">Select accommodation</button>
+<div id="wrapper">
+  <div id="overview-wrapper">
+    <div class="card" id="accommodations">
+      <div class="card-header">Accommodations</div>
+      <ul class="list-group list-group-flush" *ngFor="let accommodation of accommodations">
+        <li class="list-group-item">{{accommodation.accommodationName}} - {{accommodation.country}}<button type="button" class="btn btn-info" data-toggle="collapse" [attr.data-target]="'#accommodation' + accommodation.accId" id="ColBut">+</button></li>
+        <div [attr.id]="'accommodation' + accommodation.accId" class="collapse">
+            <p><b>Type:</b> {{accommodation.accommodationType}}</p>
+            <p><b># Rooms:</b> {{accommodation.numberOfRooms}}</p>
+          <p><b>Average Rating (#):</b> {{accommodation.accommodationAverageRating}} (#{{accommodation.ratingCount}})</p>
+          <p><b>Address:</b> {{accommodation.country}}, {{accommodation.accommodationAddress}}</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="saveCurrentAccommodation(accommodation)" id="addAcc">Select accommodation</button>
+        </div>
+      </ul>
     </div>
-  </ul>
-</div>
 
-<div id="searchAccommodation" class="card">
-  <div class="card-header">
-    Search Accommodations
-   </div>
-  <div class="card-body">
-    <input type="test" class="form-control" id="accommodationName" aria-describedby="addAccommodation">
-    <button type="button" class="btn btn-primary" id="searchAcc"> Search </button>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Accommodation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group" id="formAccommodation">
-            <label for="accommodationName">Name: </label>
-            <input type="text" class="form-control" id="accommodationName" aria-describedby="addAccommodation" value={{currentAccommodation.accommodationName}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationAddress">Address: </label>
-            <input type="text" class="form-control" id="accommodationAddress" value={{currentAccommodation.accommodationAddress}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationType">Country: </label>
-            <input type="text" class="form-control" id="accommodationCountry" value={{currentAccommodation.country}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationType">Type of accommodation: </label>
-            <input type="text" class="form-control" id="accommodationType" value={{currentAccommodation.accommodationAddress}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationRating">Average Rating: </label>
-            <input type="text" class="form-control" id="accommodationRating" value={{currentAccommodation.accommodationAverageRating}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationType">Number of rooms: </label>
-            <input type="text" class="form-control" id="accommodationType" value={{currentAccommodation.numberOfRooms}} disabled>
-          </div>
-          <div class="form-group">
-            <label for="accommodationRating">Your comments: </label>
-            <input type="text" class="form-control" id="yourComments" [(ngModel)]="currentYourComment" name="some1" placeholder="Place comment here...">
-          </div>
-          <div class="form-group">
-            <label for="accommodationRating">Your rating: </label>
-            <input type="text" class="form-control" id="yourRating" [(ngModel)]="currentYourRating" name="some2" placeholder="Place rating here [1-10]...">
-          </div>
-          <div class="form-group">
-            <label for="accommodationRating">Date of visit[YYY-MM-DD]: </label>
-            <input type="text" class="form-control" id="yourDate" [(ngModel)]="currentYourDate" name="some3" placeholder="Place date here [YYYY-MM-DD]...">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="saveNewAccommodationVisit(currentYourComment,currentYourRating,currentYourDate)" data-dismiss="modal">Save visit</button>
+    <div id="searchAccommodation" class="card">
+      <div class="card-header">
+        Search Accommodations
+       </div>
+      <div class="card-body">
+        <input type="test" class="form-control" id="accommodationName" aria-describedby="addAccommodation">
+        <button type="button" class="btn btn-primary" id="searchAcc"> Search </button>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Accommodation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div id="static-model-items">
+                <div class="form-group" id="formAccommodation">
+                  <label for="accommodationName">Name: </label>
+                  <input type="text" class="form-control" id="accommodation-name" aria-describedby="addAccommodation" value={{currentAccommodation.accommodationName}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="accommodationAddress">Address: </label>
+                  <input type="text" class="form-control" id="accommodationAddress" value={{currentAccommodation.accommodationAddress}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="accommodationType">Country: </label>
+                  <input type="text" class="form-control" id="accommodationCountry" value={{currentAccommodation.country}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="accommodationType">Type of accommodation: </label>
+                  <input type="text" class="form-control" id="accommodationType" value={{currentAccommodation.accommodationAddress}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="accommodationRating">Average Rating: </label>
+                  <input type="text" class="form-control" id="accommodationRating" value={{currentAccommodation.accommodationAverageRating}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="accommodationType">Number of rooms: </label>
+                  <input type="text" class="form-control" id="accommodationType" value={{currentAccommodation.numberOfRooms}} disabled>
+                </div>
+              </div>
+
+              <div id="input-model-items">
+                <div class="form-group">
+                  <label for="accommodationRating">Date of visit: </label>
+                  <input type="text" class="form-control" id="yourDate" [(ngModel)]="currentYourDate" name="some3" placeholder="YYYY-MM-DD">
+                </div>
+                <div class="form-group">
+                  <label for="accommodationRating">Your rating: </label>
+                  <input type="text" class="form-control" id="yourRating" [(ngModel)]="currentYourRating" name="some2" placeholder="1-10">
+                </div>
+                <div class="form-group">
+                  <label for="accommodationRating">Your comments: </label>
+                  <input type="text" class="form-control" id="yourComments" [(ngModel)]="currentYourComment" name="some1">
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="closeAcc" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="saveAcc" class="btn btn-primary" (click)="saveNewAccommodationVisit(currentYourComment,currentYourRating,currentYourDate)" data-dismiss="modal">Save visit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-
-</body>
 <app-footer></app-footer>
