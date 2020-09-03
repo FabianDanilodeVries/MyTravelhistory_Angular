@@ -20,6 +20,7 @@ export class AddRestaurantComponent implements OnInit {
   currentYourDate: string;
   newRestaurantVisit : HolidayLocationVisit;
   currentRestaurant : Restaurant;
+  term : string;
 
 
   constructor(private service: AddRestaurantService, private holidayLocationVisitService : HolidayLocationVisitService, private router: Router) { 

@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LogOutButtonComponent } from './components/header/log-out-button/log-out-button.component';
 import { DatePipe } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -37,7 +38,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     DatePipe

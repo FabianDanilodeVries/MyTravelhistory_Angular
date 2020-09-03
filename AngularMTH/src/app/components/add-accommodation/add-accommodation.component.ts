@@ -19,6 +19,7 @@ export class AddAccommodationComponent implements OnInit {
   currentYourDate: string;
   newAccommodationVisit : HolidayLocationVisit;
   currentAccommodation : Accommodation;
+  term : string;
 
 
   constructor(private service: AddAccommodationService, private holidayLocationVisitService : HolidayLocationVisitService, private router: Router) { 
