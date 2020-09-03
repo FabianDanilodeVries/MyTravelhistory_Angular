@@ -18,6 +18,7 @@ export class LogInComponent implements OnInit {
   userVerified : boolean;
   userLoggedIn : UserDto;
 
+
   constructor(private logInRegisterService : LogInRegisterService, private router: Router) {
 
   }

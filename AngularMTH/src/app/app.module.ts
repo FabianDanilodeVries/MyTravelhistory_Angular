@@ -42,7 +42,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     Ng2SearchPipeModule
   ],
   providers: [
-    DatePipe
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })
