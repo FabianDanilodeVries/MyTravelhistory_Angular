@@ -15,12 +15,13 @@
       <p><b>Your Comment: </b>{{visit.comment}}</p>
       <p><b>Your Rating: </b>{{visit.rating}}</p>
       <button *ngIf= "visit.accommodation != null" data-toggle="modal" type="button" class="btn btn-secondary btn-sm" id="moreInfo" (click)="saveIds(visit)" data-target="#exampleModal">More Accommodation Info</button>
-      <button *ngIf= "visit.restaurant != null" data-toggle="modal" type="button" class="btn btn-secondary btn-sm" id="moreInfo" (click)="saveIds(visit)" data-target="#exampleModal">More Restaurant Info</button>      
+      <button *ngIf= "visit.restaurant != null" data-toggle="modal" type="button" class="btn btn-secondary btn-sm" id="moreInfo" (click)="saveIds(visit)" data-target="#exampleModal">More Restaurant Info</button>
     </div>
     </ul>
   </div>
 
   <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
     <div class="modal-dialog modal-lg" role="document">
       <div *ngIf="isARestaurant == true" class="modal-content">
         <div class="modal-header">
@@ -64,6 +65,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary closeVisit" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-danger deleteVisit" (click)="deleteVisit()" data-dismiss="modal">Delete visit</button>
+
         </div>
       </div>
       <div *ngIf="isARestaurant == false" class="modal-content">
