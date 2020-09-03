@@ -20,7 +20,7 @@ export class AddRestaurantComponent implements OnInit {
   currentYourDate: string;
   newRestaurantVisit : HolidayLocationVisit;
   currentRestaurant : Restaurant;
-  searchInput : string;
+  term : string;
 
 
   constructor(private service: AddRestaurantService, private holidayLocationVisitService : HolidayLocationVisitService, private router: Router) { 
@@ -71,8 +71,4 @@ export class AddRestaurantComponent implements OnInit {
   getUserIdFromStorage(){
     return parseInt(localStorage.getItem("loggedInUserId"));
   }
-
-  // filterResults(userInput : string){
-  //   // console.log(this.)
-  // }
 }

@@ -3,7 +3,7 @@
   <div id="overview-wrapper">
     <div class="card" id="restaurants">
       <div class="card-header">Restaurants</div>
-      <ul class="list-group list-group-flush" *ngFor="let restaurant of restaurants">
+      <ul class="list-group list-group-flush" *ngFor="let restaurant of restaurants | filter:term">
         <li class="list-group-item">{{restaurant.restaurantName}} - {{restaurant.country}}<button type="button" data-toggle="collapse" [attr.data-target]="'#Restaurant' + restaurant.restId" id="ColBut">+</button></li>
         <div [attr.id]="'Restaurant' + restaurant.restId" class="collapse">
             <p><b>Type:</b> {{restaurant.restaurantType}}</p>
@@ -17,12 +17,9 @@
     </div>
 
     <div id="searchrestaurant" class="card">
-      <div class="card-header">
-        Search Restaurants
-      </div>
+      <div class="card-header"> Search Restaurants</div>
       <div class="card-body">
-        <input type="test" class="form-control" id="restaurantName" aria-describedby="addRestaurant">
-        <button type="button" class="btn btn-primary" id="searchRes">Search</button>
+        <input type="text" class="form-control" id="restaurantName" aria-describedby="addRestaurant" placeholder="Search here" [(ngModel)]="term">
       </div>
     </div>
 
